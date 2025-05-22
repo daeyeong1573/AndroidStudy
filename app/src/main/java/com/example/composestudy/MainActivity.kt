@@ -1,47 +1,120 @@
 package com.example.composestudy
 
+import android.annotation.SuppressLint
+import android.graphics.Typeface
 import android.os.Bundle
+import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.composestudy.ui.theme.ComposeStudyTheme
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             ComposeStudyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Hello",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    Greeting("Kimdaeyeong")
                 }
             }
         }
     }
 }
 
+
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun Greeting(name:String) {
+    //TEXT
+//    Text(text = "Hello $name")
+//    스텝 1: 색상을 지정하기 위해 color 파라미터에 Color.Red를 전달해봅시다.
+//    Text(color = Color.Red,text="Hello $name")
+
+//    스텝 2: Color 객체를 이용해서 해쉬값으로 색상을 전달해봅시다. (ARGB 순)
+//    Text(color = Color(0xfff999bb), text = "Hello $name")
+
+//    스텝 3: fontSize 파라미터에 30.sp를 전달해봅니다.
+//    Text(color = Color(0xfff999bb), text = "Hello $name", fontSize = 30.sp)
+
+//    스텝 4: fontWeight에 FontWeight.Bold를 전달해봅시다.
+//    Text(color = Color(0xfff999bb), text = "Hello $name", fontSize = 30.sp, fontWeight = FontWeight.Bold)
+
+//    스텝 5: fontFamily에 FontFamily.Cursive를 전달해봅시다.
+//    Text(color = Color(0xfff999bb),
+//        text = "Hello $name",
+//        fontSize = 30.sp,
+//        fontWeight = FontWeight.Bold,
+//        fontFamily = FontFamily.Cursive
+//    )
+
+//    스텝 6: letterSpacing에 2.sp를 지정해봅시다.
+//    Text(color = Color(0xfff999bb),
+//        text = "Hello $name",
+//        fontSize = 30.sp,
+//        fontWeight = FontWeight.Bold,
+//        fontFamily = FontFamily.Cursive,
+//        letterSpacing = 2.sp
+//    )
+//    스텝 7: maxLines를 2로 지정하고 문자열을 더 추가해봅시다.
+//    Text(color = Color(0xfff999bb),
+//        text = "Hello $name\nHello $name\nHello $name",
+//        fontSize = 30.sp,
+//        fontWeight = FontWeight.Bold,
+//        fontFamily = FontFamily.Cursive,
+//        letterSpacing = 2.sp,
+//        maxLines = 2
+//    )
+//    스텝 8: textDecoration에 TextDecoration.Underline을 추가합시다.
+//    Text(
+//        color = Color(0xfff999bb),
+//        text = "Hello $name\nHello $name\nHello $name",
+//        fontSize = 30.sp,
+//        fontWeight = FontWeight.Bold,
+//        fontFamily = FontFamily.Cursive,
+//        letterSpacing = 2.sp,
+//        textDecoration = TextDecoration.Underline
+//    )
+
+//    스텝 9: textAlign을 TextAlign.Center로 지정합니다.
+        Text(modifier = Modifier.size(300.dp),
+        color = Color(0xfff999bb),
+        text = "Hello $name\nHello $name\nHello $name",
+        fontSize = 30.sp,
+        fontWeight = FontWeight.Bold,
+        fontFamily = FontFamily.Cursive,
+        letterSpacing = 2.sp,
+            maxLines = 2,
+        textDecoration = TextDecoration.Underline,
+        textAlign = TextAlign.Center
     )
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     ComposeStudyTheme {
-        Greeting("Android")
+        Greeting("KimDaeyeong")
     }
 }
