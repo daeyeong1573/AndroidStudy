@@ -1,18 +1,11 @@
 package com.example.composestudy
 
 import android.annotation.SuppressLint
-import android.graphics.Typeface
 import android.os.Bundle
-import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -36,7 +29,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeStudyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) {
-                    Greeting("Kimdaeyeong")
+                    TextGreeting("Kimdaeyeong")
                 }
             }
         }
@@ -45,7 +38,7 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun Greeting(name:String) {
+fun TextGreeting(name:String) {
     //TEXT
 //    Text(text = "Hello $name")
 //    스텝 1: 색상을 지정하기 위해 color 파라미터에 Color.Red를 전달해봅시다.
@@ -115,6 +108,6 @@ fun Greeting(name:String) {
 @Composable
 fun GreetingPreview() {
     ComposeStudyTheme {
-        Greeting("KimDaeyeong")
+            TextGreeting("KimDaeyeong")
     }
 }
